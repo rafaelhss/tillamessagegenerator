@@ -10,6 +10,13 @@ app.controller("tillaCtrl", function ($scope, $http) {
         $scope.texto = localStorage.getItem("texto");
     }
 
+    $scope.limparStorage = function() {
+        localStorage.removeItem("texto");
+        $scope.texto = getTextoInicial();
+    }
+
+
+
     $scope.frete = function (cep) {
         console.log(cep);
 
@@ -55,16 +62,29 @@ app.controller("tillaCtrl", function ($scope, $http) {
 
 });
 
+
+app.directive('selectOnClick', ['$window', function ($window) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.on('click', function () {
+                if (!$window.getSelection().toString()) {
+                    // Required for mobile Safari
+                    this.setSelectionRange(0, this.value.length)
+                }
+            });
+        }
+    };
+}]);
+
 function getData(cep) {
-    return "nCdEmpresa=&sDsSenha=&nCdServico=41106&sCepOrigem=70873-060&sCepDestino=" + cep + "&nVlPeso=1&nCdFormato=1&nVlComprimento=61&nVlAltura=61&nVlLargura=61&nVlDiametro=61&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
+    return "nCdEmpresa=&sDsSenha=&nCdServico=41106&sCepOrigem=70873-060&sCepDestino=" + cep + "&nVlPeso=0.3&nCdFormato=1&nVlComprimento=16&nVlAltura=11&nVlLargura=16&nVlDiametro=0&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
 }
 
 function getTextoInicial() {
     if(localStorage.getItem("texto") === null)
-        return "Oi piranha... o frete eh $[valor] e demora [prazo] dias... fui!";
+        return "O frete para seu CEP fica $[valor]. O prazo de entrega é de até [prazo] dias úteis via PAC. Envio seguro com codigo de rastreio. Esse valor vale para até 20 caixas.";
     else
-        return localStorage.getItem("texto");
-    
-    
+        return localStorage.getItem("texto");    
 }
 

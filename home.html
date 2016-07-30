@@ -34,11 +34,12 @@
                 </div>
                 <div class="form-group">
                     <label for="texto">Texto:</label>
-                    <textarea class="form-control" rows="15" id="texto" ng-model="texto"></textarea>
+                    <textarea class="form-control" rows="15" id="texto" ng-model="texto" select-on-click></textarea>
                 </div>
             </div>
         </div>
 
+        <small> <button type="button" class="btn btn-link" ng-click="limparStorage();">Restaurar texto origina de fabrica</button> </small>       
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
