@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tillaApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+    <title>Tilla Frete Calculator</title>
+
+
+</head>
+
+<body ng-controller="tillaCtrl">
+    <div class="container">
+        <div class="alert alert-warning" ng-show="errotag">
+            <strong>Warning!</strong> Voce deve colocar as tags [valor] e [prazo] no seu texto.
+        </div>
+        <div class="row session">
+            <div class="col-md-6 col-md-padding-3">
+                <h3>Gerar mensagem frete:</h3>
+                <div class="form-group">
+                    <label for="cep">cep:</label>
+                    <input type="text" class="form-control" id="cep" ng-model="cep">
+                </div>
+                
+                <div ng-show="carregando" class="col-md-12 text-center">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-lg" ng-click="frete(cep);">gerar texto</button>
+                    <button type="button" class="btn btn-default btn-lg" ng-click="limpar();">Limpar</button>
+                </div>
+                <div class="form-group">
+                    <label for="texto">Texto:</label>
+                    <textarea class="form-control" rows="15" id="texto" ng-model="texto"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+
+        <script src="bower_components/x2js/xml2json.js"></script>
+
+
+        <script src="js/tillaapp.js"></script>
+</body>
+
+</html>
