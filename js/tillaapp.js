@@ -39,12 +39,14 @@ app.controller("tillaCtrl", function ($scope, $http) {
                 var xmlText = data;
                 var jsonObj = x2js.xml_str2json(xmlText);
 
-                $scope.prazo = jsonObj.cResultado.Servicos.cServico.PrazoEntrega;
-                $scope.valor = jsonObj.cResultado.Servicos.cServico.Valor;
+
+
+                var prazo = 0 + jsonObj.cResultado.Servicos.cServico.PrazoEntrega;
+                var valor =  parseFloat("0.99") + parseFloat(jsonObj.cResultado.Servicos.cServico.Valor.replace(",",".")); //soma $1 pra caixa
 
 
 
-                $scope.texto = $scope.texto.replace("[valor]", jsonObj.cResultado.Servicos.cServico.Valor).replace("[prazo]", jsonObj.cResultado.Servicos.cServico.PrazoEntrega);
+                $scope.texto = $scope.texto.replace("[valor]", valor).replace("[prazo]", prazo);
 
 
 
