@@ -30,7 +30,7 @@ app.controller("tillaCtrl", function ($scope, $http) {
 
 
             $scope.carregando = true;
-            $http.post("https://cors-anywhere.herokuapp.com/http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo", getData(cep), {
+            $http.post("https://nocors.herokuapp.com/http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo", getData(cep), {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
             }
             ).success(function (data, status) {
