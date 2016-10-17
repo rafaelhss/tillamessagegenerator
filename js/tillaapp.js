@@ -88,12 +88,13 @@ app.directive('selectOnClick', ['$window', function ($window) {
     };
 }]);
 
+
 function getDataPac(cep) {
-    return "nCdEmpresa=&sDsSenha=&nCdServico=41106&sCepOrigem=70873-060&sCepDestino=" + cep + "&nVlPeso=0.3&nCdFormato=1&nVlComprimento=18&nVlAltura=9&nVlLargura=27&nVlDiametro=0&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
+    return "nCdEmpresa=&sDsSenha=&nCdServico=41106&sCepOrigem=31160-440&sCepDestino=" + cep + "&nVlPeso=0.3&nCdFormato=1&nVlComprimento=18&nVlAltura=9&nVlLargura=27&nVlDiametro=0&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
 }
 
 function getDataSedex(cep) {
-    return "nCdEmpresa=&sDsSenha=&nCdServico=40010 &sCepOrigem=70873-060&sCepDestino=" + cep + "&nVlPeso=0.3&nCdFormato=1&nVlComprimento=18&nVlAltura=9&nVlLargura=27&nVlDiametro=0&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
+    return "nCdEmpresa=&sDsSenha=&nCdServico=40010 &sCepOrigem=31160-440&sCepDestino=" + cep + "&nVlPeso=0.3&nCdFormato=1&nVlComprimento=18&nVlAltura=9&nVlLargura=27&nVlDiametro=0&sCdMaoPropria=&nVlValorDeclarado=0&sCdAvisoRecebimento=N";
 }
 
 function getTextoInicial() {
